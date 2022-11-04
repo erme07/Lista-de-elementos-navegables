@@ -116,6 +116,7 @@ body{
     padding-bottom: 65px;
     text-align: center;
     transition: transform 1s;
+    user-select: none;
 }
 .toggle{
     transform: translate(0);

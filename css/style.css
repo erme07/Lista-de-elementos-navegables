@@ -14,6 +14,7 @@ body{
 .document{
     max-width:1028px;
     padding: 60px;
+    padding-bottom: 10px;
     background-color: white;
     position: relative;
     margin: 20px auto;
@@ -43,7 +44,7 @@ body{
     margin: 10px -10px 0px;
     padding: 0px 10px;
 }
-.item__title--selected, .index__item--selected{
+.item__title--selected{
     background-color: gold;
 }
 .item__description{
@@ -58,7 +59,7 @@ body{
 .item__content{
     width:100%;
     min-height: 290px;
-    background-image: url(../img/placeholder2.jpg);
+    background-image: url(../img/placeholder.jpg);
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -155,7 +156,15 @@ body{
     justify-content: center;
     align-items: center;
 }
-
+.index__item--selected{
+    color: white;
+    background-color: #272822;
+}
+.name{
+    font-size: .8rem;
+    font-weight: bold;
+    text-align: center;
+}
 @media screen and (max-width:768px) {
     .document{
         width: 100%;

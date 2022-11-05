@@ -43,6 +43,7 @@ body{
     display: inline-block;
     margin: 10px -10px 0px;
     padding: 0px 10px;
+    transition: background-color .5s ease;
 }
 .item__title--selected{
     background-color: gold;
@@ -52,6 +53,7 @@ body{
     margin: 10px -10px 5px;
     padding:5px 10px;
     line-height: 1.5rem;
+    transition: background-color .5s ease;
 }
 .item__description--selected{
     background-color: lightgray;

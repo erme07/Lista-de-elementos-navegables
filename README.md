@@ -4,4 +4,4 @@
 - Dynamic index with all elements's list to jump to a specific item.
 - The url is not modified when navigating between items in the list.
 
-![lista navegable](img/thumbnaill.jpg)
+![lista navegable](img/thumbnail.jpg)

@@ -1,9 +1,9 @@
 const items = document.querySelectorAll(".item");
 const indexTable = document.querySelector(".index__table");
-const buttonIndexItem = document.querySelectorAll(".index__item");
 let itemNumber=1, totalItems=items.length;
 
 const showButton = () => {
+    const buttonTop = document.querySelector('.button--top');
     if (window.scrollY < 1000) {
         buttonTop.classList.remove("button--top--show")
     } else {
@@ -16,7 +16,6 @@ const generateIndex = ()=>{
         numIndex.classList.add("index__item");
         if(i==0) numIndex.classList.add("index__item--selected");
         numIndex.setAttribute('title',e.children[0].innerHTML);
-        numIndex.setAttribute('name','indexNumber');
         numIndex.textContent=i+1;
         indexTable.appendChild(numIndex);
     });
@@ -52,22 +51,21 @@ window.onscroll = () => {
 }
 
 document.addEventListener('click', (e)=>{
-    if(e.target.getAttribute('id') === 'buttonTop') window.scrollTo(0, 0);
-    if(e.target.getAttribute('id') === 'buttonPrev'){
+    if(e.target.matches('.button--top')) window.scrollTo(0, 0);
+    if(e.target.matches('.button--prev')){
         if(itemNumber>1) itemNumber--;
         document.getElementById('_'+itemNumber).scrollIntoView(true);
     }
-    if(e.target.getAttribute('id') === 'buttonNext'){
+    if(e.target.matches('.button--next')){
         if(itemNumber<totalItems) itemNumber++;
         document.getElementById('_'+itemNumber).scrollIntoView(true);
     }
-    if(e.target.getAttribute('id')==='buttonIndex'){
-        const indexButton = document.getElementById("buttonIndex");
+    if(e.target.matches('.button--index')){
         const index = document.querySelector(".index");
-        indexButton.classList.toggle("button--index--hide");
         index.classList.toggle("toggle");
+        e.target.classList.toggle("button--index--hide");
     }
-    if(e.target.getAttribute('name') === 'indexNumber')
+    if(e.target.matches(".index__item"))
     document.getElementById('_'+e.target.innerHTML).scrollIntoView(true);
 })
 

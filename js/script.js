@@ -1,14 +1,13 @@
 const items = document.querySelectorAll(".item");
-const indexTable = document.querySelector(".index__table");
-const indexTableSup = document.querySelector(".index__tablesup");
+const indexTable = document.querySelector(".index");
 let itemNumber=1, totalItems=items.length;
 
 const showButton = () => {
     const buttonTop = document.querySelector('.button--top');
-    if (window.scrollY < 1000) {
-        buttonTop.classList.remove("button--top--show")
-    } else {
+    if (window.scrollY > 1000) {
         buttonTop.classList.add("button--top--show")
+    } else {
+        buttonTop.classList.remove("button--top--show")
     }
 }
 const generateIndex = ()=>{
@@ -19,7 +18,7 @@ const generateIndex = ()=>{
         numIndex.setAttribute('title',e.children[0].innerHTML);
         numIndex.textContent=i+1;
         indexTable.appendChild(numIndex);
-        indexTableSup.appendChild(numIndex);
+        
     });
     
 }
@@ -30,6 +29,10 @@ const generateId = (elemento) => {
     })
 }
 
+const posBottom = () => {
+    const index = document.querySelector(".index");
+    document.documentElement.style.setProperty('--posBottom', index.offsetHeight+'px');
+}
 window.onscroll = () => {
     showButton();
     const visibleItems=[];
@@ -71,5 +74,9 @@ document.addEventListener('click', (e)=>{
     document.getElementById('_'+e.target.innerHTML).scrollIntoView(true);
 })
 
+window.onresize = ()=>{
+    posBottom();
+}
 generateId(items);
 generateIndex();
+posBottom();

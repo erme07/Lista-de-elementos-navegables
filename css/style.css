@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+:root{
+    --posBottom: 0px;
+}
 html{
     scroll-behavior: smooth;
 } 
@@ -73,7 +76,6 @@ body{
 }
 .button{
     position: fixed;
-    right:10px;
     width:40px;
     height: 40px;
     background-color: #272822;
@@ -87,6 +89,7 @@ body{
 }
 .button--next{
     bottom:55px;
+    left:10px;
     background-image: url(../img/caret-down-solid.svg);
     background-position: center;
     background-repeat: no-repeat;
@@ -94,15 +97,17 @@ body{
 }
 .button--prev{
     bottom:10px;
+    left: 10px;
     background-image: url(../img/caret-up-solid.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: 15px;
 }
 .button--top{
-    bottom:100px;
+    bottom:10px;
+    right:10px;
     transform: translatex(60px);
-    transition: 0.6s;
+    transition: transform 0.6s;
     background-image: url(../img/chevron-up-solid.svg);
     background-position: center;
     background-repeat: no-repeat;
@@ -113,20 +118,6 @@ body{
     transform: translatex(0)!important;
 }
 
-.index{
-    width:250px;
-    min-height: 200px;
-    background-color: #a49e7e;
-    transform: translate(-100%);
-    opacity: 0;
-    position: fixed;
-    bottom:0px;
-    padding:15px;
-    padding-bottom: 65px;
-    text-align: center;
-    transition: transform .4s ease, opacity .5s ease;
-    user-select: none;
-}
 .toggle{
     transform: translate(0);
     opacity: 1;
@@ -144,42 +135,9 @@ body{
 .button--index--hide{
     background-image: url(../img/chevron-left-solid.svg);
 }
-.index__table{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 33px);
-    justify-content: center;
-    align-items: center;
-    justify-items: center;
-    gap: 5px;
-}
-.index__title{
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    font-size: 1rem;
-}
-.index__item{
-    cursor: pointer;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    border: 1px solid black;
-    border-radius: 10px;
-    justify-content: center;
-    align-items: center;
-}
-.index__item--selected{
-    color: white;
-    background-color: #272822;
-}
-.name{
-    font-size: .8rem;
-    font-weight: bold;
-    text-align: center;
-}
-
-.indiceTop{
-    height: 50px;
-    background-color: rgb(135, 135, 135);
+.index{
+    min-height: 50px;
+    background-color: rgba(0, 0, 0, 0.842);
     position: sticky;
     bottom:0;
     z-index: 999;
@@ -189,18 +147,61 @@ body{
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    user-select: none;
 }
 
-[contenteditable=true]:empty::before{
-    content: attr(placeholder);
-    color:grey;
+.index__item{
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    border: 1px solid black;
+    border-radius: 30%;
+    justify-content: center;
+    align-items: center;
+    background-color: #272822;
+    color: white;
+    font-weight: bold;
+    margin:5px 3px;
+}
+.index__item--selected{
+    color: black;
+    background-color: #ffd700;
+}
+.name{
+    font-size: .8rem;
+    font-weight: bold;
+    text-align: center;
 }
 
+@media screen and (max-width:1148px){
+    .button--next{
+        bottom: calc(var(--posBottom) + 55px);
+    }
+    .button--prev{
+        bottom: calc(var(--posBottom) + 10px);
+    }
+    .button--top{
+        bottom: calc(var(--posBottom) + 10px);
+    }
+}
 
 @media screen and (max-width:768px) {
-    .document{
+    .document, .header{
         width: 100%;
         margin: 0px;
         padding: 20px;
+    }
+    .button--next{
+        bottom: calc(var(--posBottom) + 50px);
+        left: 5px;
+    }
+    .button--prev{
+        bottom: calc(var(--posBottom) + 5px);
+        left: 5px;
+    }
+    .button--top{
+        bottom: calc(var(--posBottom) + 5px);
+        right: 5px;
     }
 }

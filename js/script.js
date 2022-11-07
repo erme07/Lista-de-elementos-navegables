@@ -1,5 +1,6 @@
 const items = document.querySelectorAll(".item");
 const indexTable = document.querySelector(".index__table");
+const indexTableSup = document.querySelector(".index__tablesup");
 let itemNumber=1, totalItems=items.length;
 
 const showButton = () => {
@@ -18,6 +19,7 @@ const generateIndex = ()=>{
         numIndex.setAttribute('title',e.children[0].innerHTML);
         numIndex.textContent=i+1;
         indexTable.appendChild(numIndex);
+        indexTableSup.appendChild(numIndex);
     });
     
 }

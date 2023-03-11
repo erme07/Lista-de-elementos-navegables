@@ -7,3 +7,4 @@
 
 
 ![lista navegable](img/thumbnail.jpg)
+![Preview del repositorio](https://erme07.github.io/lista-de-elementos-navegables/img/thumbnail.jpg)
